@@ -1,15 +1,9 @@
 # examples/prm_example.py
 
-import sys
-import os
-
-# Add the 'src' directory to the Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-
 import numpy as np
 import pylab as pl
-from src.env.environment_2d import Environment
-from src.prm import PRM
+from .env.environment_2d import Environment
+from .prm import PRM
 
 # Set up environment
 np.random.seed(4)
