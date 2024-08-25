@@ -56,22 +56,6 @@ class PRM:
         D = (x4, y4)
         return ccw(A, C, D) != ccw(B, C, D) and ccw(A, B, C) != ccw(A, B, D)
 
-    def is_point_near_boundary(self, x, y):
-        return (x < self.safe_distance or x > self.env.size_x - self.safe_distance or 
-                y < self.safe_distance or y > self.env.size_y - self.safe_distance)
-
-    def heuristic(self, node1, node2):
-        x1, y1 = node1
-        x2, y2 = node2
-        euclidean_dist = np.linalg.norm(np.array(node1) - np.array(node2))
-        dist1 = self.distance_to_nearest_obstacle(x1, y1)
-        dist2 = self.distance_to_nearest_obstacle(x2, y2)
-        penalty = max(0, self.safe_distance - min(dist1, dist2))
-        boundary_penalty = 0
-        if self.is_point_near_boundary(x1, y1) or self.is_point_near_boundary(x2, y2):
-            boundary_penalty = self.safe_distance
-        return euclidean_dist + penalty + boundary_penalty
-
     def distance_to_nearest_obstacle(self, x, y):
         return min([np.linalg.norm(np.array([x, y]) - np.array([ob.x0, ob.y0])) for ob in self.env.obs])
 
