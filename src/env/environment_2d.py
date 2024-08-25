@@ -1,5 +1,13 @@
 # src/env/environment_2d.py
 
+"""
+This script is sourced directly from the OS Robotics repository:
+https://github.com/crigroup/osr_course_pkgs/blob/master/osr_examples/scripts/environment_2d.py
+
+Original author: OS Robotics
+No modifications have been made to this script.
+"""
+
 import numpy as np
 import pylab as pl
 pl.ion()
